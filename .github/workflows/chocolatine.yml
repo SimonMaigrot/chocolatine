@@ -26,7 +26,7 @@ jobs:
 
   check_program_compilation:
     name: Check Program Compilation
-    runs-on: epitechcontent/epitest-docker
+    runs-on: ubuntu-latest
     timeout-minutes: 2
     container: epitechcontent/epitest-docker:latest
     needs: check_coding_style
@@ -38,10 +38,9 @@ jobs:
 
       - name: Compile with Make
         run: make
-        timeout-minutes: 2
 
       - name: Clean Repository
-        run: make clean
+        run: make fclean
 
       - name: Verify Executables
         run: |
